@@ -1,29 +1,36 @@
-# gesture-controlled-servo-esp32
-Embedded vision-based servo control system using ESP32-CAM and Edge Impulse.
-# Gesture-Controlled Smart Door System (ESP32-CAM)
+ESP32 Gesture-Controlled Door (Prototype)
+Overview
 
-## Overview
-This project implements a gesture-based smart door prototype using an ESP32-CAM module.
-The system detects hand gestures using an embedded ML model and controls a servo motor
-to simulate door opening and closing.
+This project is a small prototype of a gesture-controlled door mechanism using an ESP32-CAM and a servo motor.
 
-## Features
-- Real-time gesture recognition
-- Ultrasonic sensor-based activation
-- Servo motor control
-- Edge Impulse trained model
-- ESP-IDF firmware implementation
+A TinyML model trained with Edge Impulse runs directly on the ESP32 to detect two hand gestures and rotate the servo accordingly.
 
-## Hardware Components
-- ESP32-CAM
-- Servo Motor
-- HC-SR04 Ultrasonic Sensor
-- External power supply
+This project was built to explore embedded AI and basic hardware control on microcontrollers.
 
-## Software Stack
-- ESP-IDF
-- Edge Impulse
-- Embedded C/C++
+Hardware
 
-## Project Status
-Prototype successfully tested on breadboard.
+ESP32-CAM
+
+SG90 Servo Motor
+
+External 5V power supply
+
+Breadboard and jumper wires
+
+Gestures
+
+Closed fist → Open door
+
+Open hand → Close door
+
+The model runs entirely on-device (no cloud connection).
+
+How It Works
+
+The ESP32-CAM captures an image.
+
+The image is passed to the embedded Edge Impulse model.
+
+The model outputs a prediction score.
+
+If the confidence is above a threshold, the servo rotates.
